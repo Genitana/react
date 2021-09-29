@@ -3097,7 +3097,7 @@ function beginWork(
   workInProgress.expirationTime = NoWork;
 
   switch (workInProgress.tag) {
-    case IndeterminateComponent: {
+    case IndeterminateComponent: { // 未知类型，函数组件第一次执行的时候会进来这里
       return mountIndeterminateComponent(
         current,
         workInProgress,

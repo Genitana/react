@@ -398,9 +398,9 @@ export function scheduleUpdateOnFiber(
 
   if (expirationTime === Sync) {
     if (
-      // Check if we're inside unbatchedUpdates
+      // Check if we're inside unbatchedUpdates  //这里就是关于批量更新的判断，如果不是批量更新，那么最终会到performSyncWorkOnRoot，就去render、commit了
       (executionContext & LegacyUnbatchedContext) !== NoContext &&
-      // Check if we're not already rendering
+      // Check if we're not already rendering //是不是正在渲染的判断
       (executionContext & (RenderContext | CommitContext)) === NoContext
     ) {
       // Register pending interactions on the root to avoid losing traced interaction data.
